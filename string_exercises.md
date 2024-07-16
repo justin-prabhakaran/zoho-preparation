@@ -127,11 +127,11 @@ public class Main {
 
         String str = in.nextLine();
         StringBuilder s = new StringBuilder();
-        for(int i=0;i<str.length();i++){
-            if(i == 0 || str.charAt(i-1) == ' '){
-                s.append(Character.toLowerCase(str.charAt(i)));
+        for(char c : str.toCharArray()){
+            if(Character.isLowerCase(c)){
+                s.append(Character.toUpperCase(c));
             }else{
-                s.append(Character.toUpperCase(str.charAt(i)));
+                s.append(Character.toLowerCase(c));
             }
         }
         System.out.println(s.toString());
