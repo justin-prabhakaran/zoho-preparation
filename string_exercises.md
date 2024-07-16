@@ -19,7 +19,7 @@ public class Main {
 ### Input
 Input string: I love Codeforwin!0
 ### Output
-Original string: I love Codeforwin!
+Original string: I love Codeforwin!\
 Copied string: I love Codeforwin
 ```java
 import java.util.*;
@@ -37,8 +37,8 @@ public class Main {
 ```
 ## 3. Write a C program to concatenate two strings.
 ### Input
-Input string1: I love
-Input string2: Codeforwin
+Input string1: I love\
+Input string2: Codeforwin\
 ### Output
 Concatenated string: I love Codeforwin
 ```java
@@ -57,8 +57,8 @@ public class Main {
 ```
 ## 4. Write a C program to compare two strings.
 ### Input
-Input string1: Learn at Codeforwin.
-Input string2: Learn at Codeforwin.
+Input string1: Learn at Codeforwin.\
+Input string2: Learn at Codeforwin.\
 ### Output
 Both strings are lexographically equal.
 ```java
@@ -142,8 +142,8 @@ public class Main {
 ### Input
 Input string: I love Codeforwin.
 ### Output
-Alphabets = 15
-Digits = 0
+Alphabets = 15\
+Digits = 0\
 Special characters = 3
 ```java
 import java.util.*;
@@ -173,7 +173,7 @@ public class Main {
 ### Input
 Input string: I love Codeforwin.
 ### Output
-Total Vowels = 7
+Total Vowels = 7\
 Total Consonants = 8
 ```java
 import java.util.*;
@@ -273,7 +273,7 @@ public class Main {
 ### Input
 Input string : I love learning programming at Codeforwin
 ### Output
-Reversed order of words:
+Reversed order of words:\
 Codeforwin at programming learning love I
 ```java
 import java.util.*;
@@ -293,7 +293,7 @@ public class Main {
 ```
 ## 14. Write a C program to find first occurrence of a character in a given string.
 ### Input
-Input string: I love Codeforwin.
+Input string: I love Codeforwin.\
 Input character to search: o
 ### Output
 'o' is found at index 3
@@ -312,7 +312,7 @@ public class Main {
 ```
 ## 15. Write a C program to find last occurrence of a character in a given string.
 ### Input
-Input string: I love Codeforwin.
+Input string: I love Codeforwin.\
 Input character to search: o
 ### Output
 Last index of 'o' is 12.
@@ -331,7 +331,7 @@ public class Main {
 ```
 ## 16. Write a C program to search all occurrences of a character in given string.
 ### Input
-Input string: I love programming. I love Codeforwin.
+Input string: I love programming. I love Codeforwin.\
 Input character to search: o
 ### Output
 'o' found at index: 3, 9, 23, 28, 32
@@ -355,7 +355,7 @@ public class Main {
 ```
 ## 17. Write a C program to count occurrences of a character in given string.
 ### Input
-Input string: I love programming. I love Codeforwin.
+Input string: I love programming. I love Codeforwin.\
 Input character to search: o
 ### Output
 Total occurrences of 'o': 5
@@ -447,15 +447,15 @@ public class Main {
 ### Input
 Input string: Codeforwin
 ### Output
-Frequency of all characters in the given string:
-'c' = 1
-'d' = 1
-'e' = 1
-'f' = 1
-'i' = 1
-'n' = 1
-'o' = 2
-'r' = 1
+Frequency of all characters in the given string:\
+'c' = 1\
+'d' = 1\
+'e' = 1\
+'f' = 1\
+'i' = 1\
+'n' = 1\
+'o' = 2\
+'r' = 1\
 'w' = 1
 ```java
 import java.util.*;
@@ -480,7 +480,7 @@ public class Main {
 ```
 ## 21. Write a C program to remove first occurrence of a character from string.
 ### Input
-Input string: I Love programming. I Love Codeforwin. I Love India.
+Input string: I Love programming. I Love Codeforwin. I Love India.\
 Input character to remove: 'I'
 ### Output
 Love Programming. I Love Codeforwin. I Love India
@@ -507,7 +507,7 @@ public class Main {
 ```
 ## 22. Write a C program to remove last occurrence of a character from string.
 ### Input
-Input string : I love programming. I love Codeforwin.
+Input string : I love programming. I love Codeforwin.\
 Input character to remove : 'I'
 ### Output
 String after removing last 'I' : I love programming. love Codeforwin.
@@ -534,7 +534,7 @@ public class Main {
 ```
 ## 23. Write a C program to remove all occurrences of a character from string.
 ### Input
-Input string : I Love Programming. I Love Codeforwin.
+Input string : I Love Programming. I Love Codeforwin.\
 Input character to remove : 'I'
 ### Output
 String after removing all 'I' : Love Programming. Love Codeforwin.
@@ -582,8 +582,8 @@ public class Main {
 ```
 ## 25. Write a C program to replace first occurrence of a character with another in a string.
 ### Input
-Input string: I love programming.
-Input character to replace: .
+Input string: I love programming.\
+Input character to replace: .\
 Input character to replace with: !
 ### Output
 String after replacing '.' with '!': I love programming!
@@ -612,8 +612,8 @@ public class Main {
 ```
 ## 26. Write a C program to replace last occurrence of a character with another in a string.
 ###Input
-Input string: Do you love programming.
-Input character to replace: .
+Input string: Do you love programming.\
+Input character to replace: .\
 Input character to replace with: ?
 ### Output
 String after replacing last '.' with '?' : Do you love programming?
@@ -642,8 +642,8 @@ public class Main {
 ```
 ## 27. Write a C program to replace all occurrences of a character with another in astring.
 ### Input
-Input string: I_love_learning_at_Codeforwin.
-Input character to replace: _
+Input string: I_love_learning_at_Codeforwin.\
+Input character to replace: _\
 Input character to replace with: -
 ### Output
 String after replacing '_' with '-': I-love-learning-at-Codeforwin
