@@ -38,7 +38,7 @@ public class Main {
 ## 3. Write a C program to concatenate two strings.
 ### Input
 Input string1: I love\
-Input string2: Codeforwin\
+Input string2: Codeforwin
 ### Output
 Concatenated string: I love Codeforwin
 ```java
@@ -58,7 +58,7 @@ public class Main {
 ## 4. Write a C program to compare two strings.
 ### Input
 Input string1: Learn at Codeforwin.\
-Input string2: Learn at Codeforwin.\
+Input string2: Learn at Codeforwin.
 ### Output
 Both strings are lexographically equal.
 ```java
