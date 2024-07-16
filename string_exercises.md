@@ -668,8 +668,271 @@ public class Main {
     }
 }
 ```
+## 28. Write a C program to find first occurrence of a word in a given string.
+### Input
+Input string: I love programming!\
+Input word to search: love
+### Output
+'love' is found at index 2
+```java
+import javax.annotation.processing.SupportedSourceVersion;
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
 
+        String str = in.nextLine();
+        String s = in.next();
 
+        if(str.contains(s)){
+            System.out.println(str.indexOf(s));
+        }else{
+            System.out.println("Not Found !");
+        }
 
+    }
+}
+```
+## 29. Write a C program to find last occurrence of a word in a given string.
+### Input
+Input string: I love programming. I love Codeforwin.\
+Input word: love
+### Output
+'love' is found at index: 22
+```java
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
 
+        String str = in.nextLine();
+        String s = in.next();
+        boolean isfound = false;
+        for(int i=str.length() - s.length();i>=0;i--){
+            if(str.substring(i , i +  s.length()).equals(s) && !isfound){
+                System.out.println(i);
+                isfound = true;
+            }
+        }
+
+    }
+}
+```
+## 30.Write a C program to search all occurrences of a word in given string.
+### Input
+Input string: I love programming. I love Codeforwin.\
+Input word to search: love
+### Output
+'love' is found at index: 2
+'love' is found at index: 22
+```java
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        String str = in.nextLine();
+        String s = in.next();
+        for(int i=0;i<= str.length() - s.length();i++){
+            if(str.substring(i , i +  s.length()).equals(s) ){
+                System.out.println(i);
+            }
+        }
+
+    }
+}
+```
+## 31.Write a C program to count occurrences of a word in a given string.
+### Input
+Input string: I love programming. I love Codeforwin.\
+Input word to search: love
+### Output
+Total occurrences of 'love': 2
+```java
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        String str = in.nextLine();
+        String s = in.next();
+        int cnt=0;
+        for(int i=0;i<= str.length() - s.length();i++) {
+            if (str.substring(i, i + s.length()).equals(s)) {
+                cnt++;
+            }
+        }
+        System.out.println(cnt);
+
+    }
+}
+```
+## 32.Write a C program to remove first occurrence of a word from string.
+### Input
+Input string : Learn programming at Codeforwin.\
+Input word to remove : Learn
+### Output
+String after removing 'Learn':\
+programming at Codeforwin.
+```java
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        String str = in.nextLine();
+        String s = in.next();
+        StringBuilder sb = new StringBuilder();
+        if(str.contains(s)){
+            int idx = str.indexOf(s);
+            for(int i=0;i<str.length();i++){
+                if( i < idx || i > idx + s.length()){
+                    sb.append(str.charAt(i));
+                }
+            }
+        }
+        System.out.println(sb);
+
+    }
+}
+```
+OR
+```java
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        String str = in.nextLine();
+        String s = in.next();
+        if(str.contains(s)){
+            int idx = str.indexOf(s);
+            System.out.println(str.substring(0,idx) + str.substring(idx + s.length()));
+        }
+
+    }
+}
+```
+## 33.Write a C program to remove last occurrence of a word in given string.
+### Input
+Input string: I am a programmer. I learn at Codeforwin.\
+Input word to remove: I
+### Output
+String after removing last occurrence of 'I':\
+I am a programmer. learn at Codeforwin
+```java
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        String str = in.nextLine();
+        String s = in.next();
+        if(str.contains(s)){
+            int idx = str.lastIndexOf(s);
+            System.out.println(str.substring(0,idx) + str.substring(idx + s.length()));
+        }
+
+    }
+}
+```
+## 34.Write a C program to remove all occurrence of a word in given string.
+### Input
+Input string: I love programming. I love Codeforwin.\
+Input word to remove: I
+### Output
+String after removing 'I':\
+love programming. love Codeforwin.
+```java
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        String str = in.nextLine();
+        String s = in.next();
+        StringBuilder sb = new StringBuilder();
+        for(int i=0;i<=str.length() - s.length();i++){
+            if(!str.substring(i,i + s.length()).equals(s)){
+                sb.append(str, i, i + s.length());
+            }
+        }
+        System.out.println(sb);
+
+    }
+}
+```
+## 35.Write a C program to trim leading white space characters from given string.
+### Input
+Input string:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lots of leading spaces
+### Output
+String after removing leading white spaces:\
+Lots of leading space.
+```java
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        String str = in.nextLine();
+        System.out.println(str.stripLeading());
+
+    }
+}
+```
+
+## 36.Write a C program to trim trailing white space characters from given string.
+### Input
+Input string: "Lots of trailing white spaces. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "
+### Output
+String after removing trailing white spaces:\
+"Lots of trailing white spaces.
+```java
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        String str = in.nextLine();
+        System.out.println(str.stripTrailing());
+
+    }
+}
+```
+## 37.Write a C program to trim both leading and trailing white space characters from given string.
+### Input
+Input string: "&nbsp;&nbsp;&nbsp;&nbsp;Lots of leading and trailing spaces.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+### Output
+String after removing leading and trailing white spaces:\
+"Lots of leading and trailing spaces."
+```
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        String str = in.nextLine();
+        System.out.println(str.trim());
+
+    }
+}
+```
+## 38.Write a C program to remove all extra blank spaces from given string.
+### Input
+Input string: Learn&nbsp;&nbsp;&nbsp; C programming&nbsp;&nbsp;&nbsp; at &nbsp;&nbsp;Codeforwin.
+### Output
+String after removing extra blanks:\
+Learn C programming at Codeforwin.
+```java
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        String str = in.nextLine();
+        System.out.println(str.replaceAll("\\s+"," ").trim());
+
+    }
+}
+```
 
