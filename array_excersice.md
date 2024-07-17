@@ -458,3 +458,231 @@ public class Main {
     }
 }
 ```
+## 16. Write a program to input elements in array and put even and odd elements in separate array.
+### Sample Input:
+Input size of the array: 10\
+Input elements in array: 0 1 2 3 4 5 6 7 8 9
+### Sample Output:
+Output even elements in array: 0 2 4 6 8\
+Output odd elements in array: 1 3 5 7 9
+```java
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i] = in.nextInt();
+        }
+
+        int[] even = new int[n];
+        int[] odd = new int[n];
+        int ev=0,od=0,i=0;
+        while(i < n){
+            if(arr[i] % 2 == 0){
+                even[ev++] = arr[i++];
+            }else {
+                odd[od++] = arr[i++];
+            }
+        }
+
+        for(int j=0;j<ev;j++){
+            System.out.print(even[j] + " ");
+        }
+        System.out.println();
+        for(int j=0;j<od;j++){
+            System.out.print(odd[j] + " ");
+        }
+    }
+}
+```
+## 17. Write a program to input elements in array and search whether an element exists in array or not.
+### Sample Input:
+Input size of array: 10\
+Input elements in array: 10, 12, 20, 25, 13, 10, 9, 40, 60, 5
+### Sample Output:
+Element to search is: 25\
+Element found at index 3
+```java
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i] = in.nextInt();
+        }
+        int el = in.nextInt();
+        for(int i=0;i<n;i++){
+            if(arr[i] == el){
+                System.out.println(i);
+            }
+        }
+    }
+}
+```
+## 18. Write a program to input elements in array and sort array elements in ascending or descending order.
+## Sample Input:
+Input size of array: 10\
+Input array elements: 20, 2, 10, 6, 52, 31, 0, 45, 79, 40
+## Sample Output:
+Array sorted in ascending order: 0, 2, 6, 10, 20, 31, 40, 45, 52, 79
+```java
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i] = in.nextInt();
+        }
+        for(int i=0;i<n;i++){
+            for(int j=i;j>0;j--){
+                if(arr[j-1] > arr[j]){
+                    int temp = arr[j-1];
+                    arr[j-1] = arr[j];
+                    arr[j] =temp;
+                }else{
+                    break;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(arr));
+    }
+}
+```
+OR 
+```java
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i] = in.nextInt();
+        }
+        System.out.println(Arrays.toString(Arrays.stream(arr).sorted().toArray()));
+    }
+}
+```
+## 19. Write a program to input elements in an array from user and sort all even and odd elements of the given array separately without using any other array.
+### Sample Input:
+Input size of array: 10\
+Input elements of array: 0 5 1 2 3 4 6 12 10 9
+### Sample Output:
+Output in sorted order: 0 2 4 6 10 12 1 3 5 9
+```
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i] = in.nextInt();
+        }
+
+        int i=0,j=n-1;
+        while(i < j){
+            while(i < n && arr[i] % 2 == 0 ) i++;
+            while(j >= 0 && arr[j] % 2 != 0) j--;
+
+            if(i < j){
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+
+        }
+
+        Arrays.sort(arr,0,i);  //use above sort algorithm to avoid build-in func
+        Arrays.sort(arr,i,n);
+        System.out.println(Arrays.toString(arr));
+    }
+}
+```
+## 20. Write a program to left rotate an array by n position
+### Sample Input:
+Input 10 elements in array: 1 2 3 4 5 6 7 8 9 10\
+Input number of times to rotate: 3
+### Sample Output:
+Array after left rotation 3 times: 4 5 6 7 8 9 10 1 2 3
+```java
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i] = in.nextInt();
+        }
+        int k = in.nextInt();
+        rotate(arr,0,k-1);
+        rotate(arr,k,n-1);
+        rotate(arr,0,n-1);
+
+        System.out.println(Arrays.toString(arr));
+    }
+    private static void rotate(int[] arr, int i, int j){
+        while (i < j){
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            i++;
+            j--;
+        }
+
+    }
+}
+```
+## 21. Write a C program to right rotate an array by n position.
+### Sample Input:
+Input 10 elements in array: 1 2 3 4 5 6 7 8 9 10\
+Input number of times to rotate: 3
+### Sample Output:
+Array after right rotation: 8 9 10 1 2 3 4 5 6 7
+```java
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i] = in.nextInt();
+        }
+        int k = in.nextInt();
+        rotate(arr,0,n-1);
+        rotate(arr,0,k-1);
+        rotate(arr,k,n-1);
+
+        System.out.println(Arrays.toString(arr));
+    }
+    private static void rotate(int[] arr, int i, int j){
+        while (i < j){
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            i++;
+            j--;
+        }
+
+    }
+}
+```
+
+
+
+
