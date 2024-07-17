@@ -682,7 +682,377 @@ public class Main {
     }
 }
 ```
+# 2D Array Exercises
+## 1. Write a program to read elements in two matrices and add elements of both matrices.
+### Sample Input:
+Input elements in 3x3 matrix1:\
+1 2 3\
+4 5 6\
+7 8 9\
+Input elements in 3x3 matrix2:\
+9 8 7\
+6 5 4
+3 2 1\
+### Sample Output:
+Sum of both matrix =\
+10 10 10\
+10 10 10\
+10 10 10
+```java
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        int n = in.nextInt();
+        int[][] arr1 = new int[n][n];
+        int[][] arr2 = new int[n][n];
+        int[][] sum = new int[n][n];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                arr1[i][j] = in.nextInt();
+            }
+        }
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                arr2[i][j] = in.nextInt();
+            }
+        }
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                sum[i][j] = arr1[i][j] + arr2[i][j];
+            }
+        }
+
+        System.out.println(Arrays.deepToString(sum));
+    }
+}
+```
+## 2. Write a program to read elements in two matrices and find the difference of two matrices.
+### Sample Input:
+Input elements in 3x3 matrix1:\
+1 2 3\
+4 5 6\
+7 8 9\
+Input elements in 3x3 matrix2:\
+9 8 7\
+6 5 4\
+3 2 1
+### Sample Output:
+Difference of both matrices =\
+-8 -6 -4\
+-2 0 2\
+4 6 8
+```java
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        int n = in.nextInt();
+        int[][] arr1 = new int[n][n];
+        int[][] arr2 = new int[n][n];
+        int[][] sum = new int[n][n];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                arr1[i][j] = in.nextInt();
+            }
+        }
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                arr2[i][j] = in.nextInt();
+            }
+        }
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                sum[i][j] = arr1[i][j] - arr2[i][j];
+            }
+        }
+
+        System.out.println(Arrays.deepToString(sum));
+    }
+}
+```
+## 3. Write a program to read elements in a matrix and perform scalar multiplication of matrix.
+### Sample Input
+Input elements of matrix A:\
+1 2 3\
+4 5 6\
+7 8 9\
+Input multiplier: 2
+### Sample Output:
+2 4 6\
+8 10 12\
+14 16 18
+```java
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        int k = in.nextInt();
+        int n = in.nextInt();
+        int[][] arr = new int[n][n];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                arr[i][j] = in.nextInt() * k ;
+            }
+        }
 
 
+        System.out.println(Arrays.deepToString(arr));
+    }
+}
+```
+## 4. Write a program to read elements in two matrices and multiply them.
+### Sample Input:
+Input elements of matrix1:\
+1 2 3\
+4 5 6\
+7 8 9\
+Input elements of matrix2:\
+9 8 7\
+6 5 4\
+3 2 1
+### Sample Output:
+Product of matrices =\
+30 24 18\
+84 69 54\
+138 114 90
+```java
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
 
+        int n = in.nextInt();
+        int[][] arr1 = new int[n][n];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                arr1[i][j] = in.nextInt() ;
+            }
+        }
+        int[][] arr2 = new int[n][n];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                arr2[i][j] = in.nextInt() ;
+            }
+        }
+
+        int[][] sum = new int[n][n];
+
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                for(int k=0;k<n;k++){
+                    sum[i][j] += arr1[i][k] * arr2[k][j];
+                }
+            }
+        }
+        System.out.println(Arrays.deepToString(sum));
+    }
+}
+```
+## 5. Write a C program to enter elements in two matrices and check whether both matrices are equal or not.
+### Sample Input:
+Input elements of matrix1:\
+1 2 3\
+4 5 6\
+7 8 9\
+Input elements of matrix2:\
+1 2 3\
+4 5 6\
+7 8 9\
+### Sample Output:
+Both matrices are equal
+```java
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        int n = in.nextInt();
+        int[][] arr1 = new int[n][n];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                arr1[i][j] = in.nextInt() ;
+            }
+        }
+        int[][] arr2 = new int[n][n];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                arr2[i][j] = in.nextInt() ;
+            }
+        }
+
+        System.out.println(isValid(arr1,arr2,n));
+
+    }
+    private static boolean isValid(int[][]a,int[][]b,int n){
+
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(a[i][j] != b[i][j]){
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+}
+```
+### 6. Write a C program to read elements in a matrix and find the sum of main diagonal (major diagonal) elements of matrix.
+## Sample Input:
+Input array elements:\
+1 2 3\
+4 5 6\
+7 8 9\
+### Sample Output:
+Sum of main diagonal elements = 15
+```java
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        int n = in.nextInt();
+        int[][] arr1 = new int[n][n];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                arr1[i][j] = in.nextInt() ;
+            }
+        }
+        int sum = 0;
+        for(int i=0;i<n;i++){
+            sum += arr1[i][i];
+        }
+
+        System.out.println(sum);
+
+    }
+}
+```
+## 7. Write a C program to read elements in a matrix and find the sum of minor diagonal (opposite diagonal) elements.
+### Sample Input:
+Input elements in array:\
+1 2 3\
+4 5 6\
+7 8 9
+### Sample Output:
+Sum of minor diagonal elements = 15
+```java
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        int n = in.nextInt();
+        int[][] arr1 = new int[n][n];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                arr1[i][j] = in.nextInt() ;
+            }
+        }
+        int sum = 0;
+        for(int i=0;i<n;i++){
+            sum += arr1[i][n-1-i];
+        }
+
+        System.out.println(sum);
+
+    }
+}
+```
+## 8. Write a C program to read elements in a matrix and find the sum of elements of each row and columns of matrix.
+### Sample Input:
+Input elements in array:\
+1 2 3\
+4 5 6\
+7 8 9\
+### Sample Output:
+Sum of row 1 = 6\
+Sum of row 2 = 15\
+...\
+...\
+Sum of column 3 = 18
+```java
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        int n = in.nextInt();
+        int[][] arr1 = new int[n][n];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                arr1[i][j] = in.nextInt() ;
+            }
+        }
+        int sumr = 0;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++) {
+                sumr += arr1[i][j];
+            }
+            System.out.println(i +  "  " +sumr);
+            sumr=0;
+        }
+
+        int sumc = 0;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++) {
+                sumc += arr1[j][i];
+            }
+            System.out.println(i +  "  " +sumc);
+            sumc=0;
+        }
+
+
+    }
+}
+```
+## 9. Write a program to read elements in a matrix and interchange elements of primary(major) diagonal with secondary(minor) diagonal.
+### Sample Input:
+Input matrix elements:\
+1 2 3\
+4 5 6\
+7 8 9
+### Sample Output:
+Matrix after interchanging its diagonal:\
+3 2 1\
+4 5 6\
+9 8 7
+```java
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        int n = in.nextInt();
+        int[][] arr1 = new int[n][n];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                arr1[i][j] = in.nextInt() ;
+            }
+        }
+
+        for(int i=0;i<n;i++){
+            int temp = arr1[i][i];
+            arr1[i][i] = arr1[i][n-1-i];
+            arr1[i][n-1-i] = temp;
+
+        }
+
+        System.out.println(Arrays.deepToString(arr1));
+    }
+}
+```
 
