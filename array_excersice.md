@@ -1055,4 +1055,361 @@ public class Main {
     }
 }
 ```
+## 10. Write a C program to read elements in a matrix and check whether the matrix is upper triangular matrix or not.
+### Sample Input:
+Input elements of matrix:\
+1 2 3\
+0 5 6\
+0 0 9
+### Sample Output:
+Matrix is upper triangular
+```
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
 
+        int n = in.nextInt();
+        int[][] arr1 = new int[n][n];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                arr1[i][j] = in.nextInt() ;
+            }
+        }
+
+
+        System.out.println(isupper(arr1,n));
+    }
+    private static boolean isupper(int[][] arr,int n){
+        for(int i=0;i<n;i++){
+            for(int j=0;j<i;j++){
+                if(arr[i][j] != 0){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
+```
+## 11. Write a C program to read elements in a matrix and check whether the matrix is a lower triangular matrix or not.
+### Sample Input:
+Input elements in matrix:\
+1 0 0\
+4 5 0\
+7 8 9
+### Sample Output:
+Matrix is lower triangular
+```java
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        int n = in.nextInt();
+        int[][] arr1 = new int[n][n];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                arr1[i][j] = in.nextInt() ;
+            }
+        }
+
+
+        System.out.println(islower(arr1,n));
+    }
+    private static boolean islower(int[][] arr,int n){
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                if(arr[i][j] != 0){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
+```
+## 12. Write a C program to read elements in a matrix and find sum of upper triangular matrix.
+### Sample Input:
+Input matrix elements:\
+1 2 3\
+0 5 6\
+0 0 9
+### Sample Output:
+Sum of upper triangular matrix = 11
+```java
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        int n = in.nextInt();
+        int[][] arr1 = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                arr1[i][j] = in.nextInt();
+            }
+        }
+
+        int sum = 0;
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                sum += arr1[i][j];
+            }
+        }
+
+        System.out.println(sum);
+    }
+}
+```
+## 13. Write a C program to read elements in a matrix and find sum of lower triangular matrix.
+### Sample Input:
+Input elements in matrix:\
+1 0 0\
+4 5 0\
+7 8 9
+### Sample Output:
+Sum of lower triangular matrix = 19
+```java
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        int n = in.nextInt();
+        int[][] arr1 = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                arr1[i][j] = in.nextInt();
+            }
+        }
+
+        int sum = 0;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<i;j++){
+                sum += arr1[i][j];
+            }
+        }
+
+        System.out.println(sum);
+    }
+}
+```
+## 14. Write a C program to read elements in a matrix and find transpose of the given matrix.
+### Sample Input:
+Input elements in matrix:\
+1 2 3\
+4 5 6\
+7 8 9
+### Sample Output:
+Transpose:\
+1 4 7\
+2 5 8\
+3 6 9
+```java
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        int n = in.nextInt();
+        int[][] arr1 = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                arr1[i][j] = in.nextInt();
+            }
+        }
+
+        for(int i=0;i<n;i++){
+            for(int j=0;j<i;j++){
+                int temp = arr1[i][j];
+                arr1[i][j] = arr1[j][i];
+                arr1[j][i] = temp;
+            }
+        }
+
+        System.out.println(Arrays.deepToString(arr1));
+    }
+}
+```
+## 15. Write a C program to read elements in a matrix and find determinant of the given matrix.
+### Sample Input:
+Input elements in 2x2 matrix:\
+1 2\
+3 4
+### Sample Output:
+Determinant of the matrix = -2
+```java
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        int n = in.nextInt();
+        int[][] arr1 = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                arr1[i][j] = in.nextInt();
+            }
+        }
+
+        System.out.println(calcdet(arr1,n));
+    }
+    private static double calcdet(int[][] arr,int n){
+
+        if(n == 1)
+            return arr[0][0];
+
+        double det =0;
+        for(int i=0;i<n;i++){
+            det += arr[0][i] * cofactor(arr,0,i,arr.length);
+        }
+
+        return det;
+    }
+    private static double cofactor(int[][] arr,int row,int col, int n){
+        int[][] inner = new int[n-1][n-1];
+        int inrow = 0, incol =0;
+
+        for(int i=0;i<n;i++){
+            if(i == row){
+                continue;
+            }
+            inrow = i < row ? i : i -1;
+
+            for(int j=0;j<n;j++){
+               if(j == col){
+                   continue;
+               }
+               incol = j < col ? j : j-1;
+
+               inner[inrow][incol] = arr[i][j];
+            }
+
+        }
+
+        return Math.pow(-1, row + col) * calcdet(inner,inner.length);
+    }
+}
+```
+## 16. Write a C program to read elements in a matrix and check whether matrix is an Identity matrix or not.
+### Sample Input:
+Input elements in matrix:\
+1 0 0\
+0 1 0\
+0 0 1
+### Sample Output:
+It is an Identity matrix
+```java
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        int n = in.nextInt();
+        int[][] arr1 = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                arr1[i][j] = in.nextInt();
+            }
+        }
+
+        System.out.println(isIdentity(arr1,n));
+    }
+    private static boolean isIdentity(int[][] arr,int n){
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(i == j){
+                    if(arr[i][j] != 1){
+                        return  false;
+                    }
+                }else{
+                    if(arr[i][j] != 0){
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+}
+```
+## 17. Write a C program to read elements in a matrix and check whether matrix is Sparse matrix or not.
+### Sample Input:
+Input elements in matrix:\
+1 0 3\
+0 0 4\
+6 0 0
+### Sample Output:
+The given matrix is Sparse matrix
+```java
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        int n = in.nextInt();
+        int[][] arr1 = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                arr1[i][j] = in.nextInt();
+            }
+        }
+        int cnt=0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if(arr1[i][j] == 0){
+                    cnt++;
+                }
+            }
+        }
+
+        System.out.println((n*n)/2 < cnt);
+    }
+}
+```
+## 18. Write a C program to read elements in a matrix and check whether the given matrix is symmetric matrix or not.
+### Sample Input:
+Input matrix elements:\
+1 2 3\
+2 4 5\
+3 5 8
+### Sample Output:
+Given matrix is symmetric matrix
+```java
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        int n = in.nextInt();
+        int[][] arr1 = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                arr1[i][j] = in.nextInt();
+            }
+        }
+
+        System.out.println(is(arr1,n));
+    }
+    private static boolean is(int[][] arr ,int n){
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if(arr[i][j] != arr[j][i]){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
+```
