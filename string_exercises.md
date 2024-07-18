@@ -569,14 +569,57 @@ public class Main {
         Scanner in = new Scanner(System.in);
 
         String str = in.nextLine();
-        StringBuilder s = new StringBuilder().append(str.charAt(0));
-        for(int i=1;i<str.length();i++){
-            if(str.charAt(i-1) != str.charAt(i)){
-                s.append(str.charAt(i));
+        int[] arr = new int[26+26];
+        int cnt = 0;
+        StringBuilder sb = new StringBuilder();
+        for(char c :str.toCharArray()){
+            if(c == ' '){
+                cnt++;
+                if(cnt == 1){
+                    sb.append(c);
+                }
+            }
+            else if(c >= 'a' && c <= 'z'){
+                arr[c -'a']++;
+                if(arr[c -'a'] == 1){
+                    sb.append(c);
+                }
+            }else if(c >= 'A'&& c <= 'Z'){
+                arr[c - 'A' + 26]++;
+                if(arr[c -'A' + 26] == 1){
+                    sb.append(c);
+                }
             }
         }
-        System.out.println(s);
+        System.out.println(sb.toString());
+    }
+}
+```
+OR
+```java
+import java.util.*;
 
+public class Main{
+    public static void main(String[] args){
+        String str = "vijaya kumaarrrrarrrara";
+        char[] arr = str.toCharArray();
+        for(int i=0;i<arr.length;i++){
+            char c = arr[i];
+            for(int j=i+1;j<arr.length;j++){
+                if(c == arr[j]){
+                    arr[j] = '_';
+                }
+            }
+        }
+        System.out.println(Arrays.toString(arr));
+        String ans = "";
+        
+        for(int i=0;i<arr.length;i++){
+            if(arr[i] != '_'){
+                ans += arr[i];
+            }
+        }
+        System.out.println(ans);
     }
 }
 ```
