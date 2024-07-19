@@ -199,3 +199,79 @@ public class Main {
     }
 }
 ```
+## 7. Excel Sheet Column Number Given a string columnTitle that represents the column title as appears in an Excel sheet, return its corresponding column number. 
+### For example:\
+A -> 1\
+B -> 2\
+C -> 3\
+...\
+Z -> 26\
+AA -> 27\
+AB -> 28\
+...\
+### Example :
+Input: columnTitle = "A"\
+Output: 1\
+Example 2:\
+Input: columnTitle = "AB"\
+Output: 28\
+Example 3:\
+Input: columnTitle = "ZY"\
+Output: 701\
+### Constraints:
+1 <= columnTitle.length <= 7\
+columnTitle consists only of uppercase English letters.\
+columnTitle is in the range ["A", "FXSHRXW"].
+```java
+
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String str = in.next();
+        int res = 0;
+        for(char c : str.toCharArray()){
+            res =  res * 26 + (c - 'A' + 1);
+        }
+
+        System.out.println(res);
+    }
+}
+```
+## 8. Write a Program to remove all repeated characters from a given string.
+### Input
+Input string: Programming in C.
+### Output
+String after removing duplicate characters: Progamin C.
+```java
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String str = in.nextLine();
+        int[] arr = new int[26+26];
+        StringBuilder s = new StringBuilder();
+        int cnt =0;
+        for(char c : str.toCharArray()){
+            if(c == ' '){
+                cnt++;
+                if(cnt == 1){
+                    s.append(c);
+                }
+            }
+            else if(c >= 'a' && c <= 'z'){
+                arr[c - 'a']++;
+                if(arr[c - 'a'] == 1){
+                    s.append(c);
+                }
+            }else if(c >= 'A' && c <= 'Z'){
+                arr[c - 'A' + 26]++;
+                if(arr[c-'A'+26] == 1){
+                    s.append(c);
+                }
+            }
+        }
+        System.out.println(s);
+    }
+}
+```
